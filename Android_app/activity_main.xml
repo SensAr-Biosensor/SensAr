@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.opencv.android.JavaCameraView
+            android:id="@+id/HelloOpenCvView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="visible"
+            opencv:camera_id="any"
+            opencv:show_fps="false"
+            android:onClick="foto"/>
+
+        <ImageView
+            android:id="@+id/ImageView"
+
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="matrix"
+            />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Codigo QR" />
+
+        <ImageButton
+            android:id="@+id/flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="flash"
+            android:src="@drawable/icons8_flash_off_50"
+            android:text="Flash"
+            android:background="@drawable/round_buttom" />
+
+        <Button
+            android:id="@+id/qr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/flash"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/flash"
+            android:onClick="qr"
+            android:text="QR" />
+
+        <Button
+            android:id="@+id/Imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/flash"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+
+            android:onClick="openFile"
+            android:text="Abrir" />
+
+        <android.support.v7.widget.GridLayout
+            android:id = "@+id/vertical_layout_button"
+            android:layout_width="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            opencv:columnCount="2"
+            >
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/ImageView"
+            android:onClick="aceptar"
+
+            android:text="Aceptar"
+            opencv:layout_column = "0"
+            opencv:layout_columnWeight="1"
+            opencv:layout_gravity="fill_vertical|fill"
+            opencv:layout_rowSpan="1"
+            />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_height="match_parent"
+
+            android:onClick="cancelar"
+            android:text="Cancelar"
+            opencv:layout_column = "1"
+            opencv:layout_columnWeight="1"
+            opencv:layout_gravity="fill_vertical|fill"
+            opencv:layout_rowSpan="1"
+            />
+        </android.support.v7.widget.GridLayout>
+    </RelativeLayout>
+
+</LinearLayout>
